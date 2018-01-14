@@ -1,0 +1,26 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="BasicPhone" class="com.codegeekslab.type.BasicPhone" />
+	<bean id="SmartPhone" class="com.codegeekslab.type.SmartPhone" />
+	<!-- constructor injection of Set -->
+	<!-- <bean id="CallingApp" class="com.codegeekslab.app.CallingApp"> <constructor-arg 
+		ref="SmartPhone" /> <constructor-arg> <set> <value>12345</value> <value>67899</value> 
+		<value>12345</value> </set> </constructor-arg> <constructor-arg value="whatsapp" 
+		/> </bean> -->
+
+	<!-- setter injection of list -->
+	<bean id="CallingApp" class="com.codegeekslab.app.CallingApp">
+		<property name="phone" ref="SmartPhone"></property>
+		<property name="number">
+			<set>
+				<value>12345</value>
+				<value>67899</value>
+				<value>12345</value>
+			</set>
+		</property>
+		<property name="app" value="whatsapp"></property>
+	</bean>
+</beans>
